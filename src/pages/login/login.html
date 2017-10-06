@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item text-center>
+    <img src="assets/images/logo.png" />
+  </ion-item>
+  <ion-list no-lines>
+    <form (ngSubmit)="login()">
+      <ion-item>
+        <ion-label stacked>Username</ion-label>
+        <ion-input name="login_name" [(ngModel)]="username" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input name="login_pass" [(ngModel)]="password" type="password"></ion-input>
+      </ion-item>
+      <ion-item [@shrink]="state">
+        <ion-label stacked>Server</ion-label>
+        <ion-input name="login_server" [(ngModel)]="system_url" type="text"></ion-input>
+      </ion-item>
+      <div class="extSettings">
+        <a tappable (click)="toggleState()" item-right>
+          <ion-icon name="{{showhideIcon}}"></ion-icon> {{hideorshow}}
+        </a>
+      </div>
+      <ion-item text-center>
+        <button [disabled]="username==''||password==''||system_url==''" ion-button icon-left color="light" large><ion-icon name="log-in"></ion-icon>Login</button>
+      </ion-item>
+    </form>
+
+  </ion-list>
+</ion-content>
